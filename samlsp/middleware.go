@@ -67,7 +67,7 @@ func randomBytes(n int) []byte {
 func (m *Middleware) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path == m.ServiceProvider.MetadataURL.Path {
 		buf, _ := xml.MarshalIndent(m.ServiceProvider.Metadata(), "", "  ")
-		w.Header().Set("Content-Type", "application/samlmetadata+xml")
+		w.Header().Set("Content-Type", "application/xml")
 		w.Write(buf)
 		return
 	}
